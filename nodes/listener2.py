@@ -8,6 +8,8 @@ import turtlesim.srv
 from std_msgs.msg import Float64MultiArray
 from tf.transformations import euler_from_quaternion
 
+pi=3.14159265359
+
 if __name__ == '__main__':
     rospy.init_node('tf2_turtle_listener')
 
@@ -30,7 +32,7 @@ if __name__ == '__main__':
         (angles[0], angles[1], angles[2]) = euler_from_quaternion (orientation_list)
         angle.data = []
         for i in range(0,3):
-            angle.data.append(angles[i])
+            angle.data.append(angles[i]*180/pi)
 
         pub_angle.publish(angle)
 
