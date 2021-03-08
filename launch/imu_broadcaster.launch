@@ -1,8 +1,8 @@
 <launch>
-    <node name="imu_reader" pkg="imu_sensing" type="read_serial_imu.py" />
-    <node name="listener" pkg="imu_sensing" type="listener2.py" />
-    <node name="forearm" pkg="imu_sensing" type="broadcaster2_forearm.py" />
-    <node name="trunk" pkg="imu_sensing" type="broadcaster2_trunk.py" />
+    <node name="forearm" pkg="imu_broadcaster" type="broadcaster2_forearm.py" />
+    <node name="trunk" pkg="imu_broadcaster" type="broadcaster2_trunk.py" />    
+    <node name="listener" pkg="imu_broadcaster" type="listener2.py" />
+    <node name="imu_reader" pkg="imu_broadcaster" type="read_serial_imu.py" />
 
 
 </launch>
