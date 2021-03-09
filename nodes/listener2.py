@@ -18,7 +18,7 @@ if __name__ == '__main__':
     
     pub_angle = rospy.Publisher('flexion_angle', Float64MultiArray, queue_size=1)
     angle = Float64MultiArray()
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(200)
     while not rospy.is_shutdown():
         try:
             trans = tfBuffer.lookup_transform('trunk', 'forearm', rospy.Time())
