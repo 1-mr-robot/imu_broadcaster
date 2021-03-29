@@ -126,9 +126,9 @@ class read_wrist(object):
         # Open the serial
         ser.open()
 
-        quat_fore_pub = rospy.Publisher('forearm_quaternion', Quaternion, queue_size = 10)
+        quat_upper_pub = rospy.Publisher('upperarm_quaternion', Quaternion, queue_size = 10)
         quat_should_pub = rospy.Publisher('shoulder_quaternion', Quaternion, queue_size = 10)
-        quat_trunk_pub = rospy.Publisher('trunk_quaternion', Quaternion, queue_size = 10)
+        quat_fore_pub = rospy.Publisher('forearm_quaternion', Quaternion, queue_size = 10)
         
         # Initialize the flag used to check the availability of the received serial data
         flag_sent = 0
@@ -150,7 +150,7 @@ class read_wrist(object):
                     quat_sent.x = quat_total[0][1]
                     quat_sent.y = quat_total[0][2]
                     quat_sent.z = quat_total[0][3]
-                    quat_trunk_pub.publish(quat_sent)
+                    quat_fore_pub.publish(quat_sent)
                     quat_sent = Quaternion()
                     quat_sent.w = quat_total[1][0]
                     quat_sent.x = quat_total[1][1]
@@ -162,7 +162,7 @@ class read_wrist(object):
                     quat_sent.x = quat_total[2][1]
                     quat_sent.y = quat_total[2][2]
                     quat_sent.z = quat_total[2][3]
-                    quat_fore_pub.publish(quat_sent)
+                    quat_upper_pub.publish(quat_sent)
                 # # Split the serial data into several words separated by space
                 # words = data.split()
                 # # Get the length of the data array

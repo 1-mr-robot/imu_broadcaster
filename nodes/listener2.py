@@ -21,7 +21,7 @@ if __name__ == '__main__':
     rate = rospy.Rate(200)
     while not rospy.is_shutdown():
         try:
-            trans = tfBuffer.lookup_transform('trunk', 'forearm', rospy.Time())
+            trans = tfBuffer.lookup_transform('forearm', 'upperarm', rospy.Time())
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
             rate.sleep()
             continue

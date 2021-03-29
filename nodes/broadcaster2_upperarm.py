@@ -15,7 +15,7 @@ def handle_arm_pose(msg):
 
     t.header.stamp = rospy.Time.now()
     t.header.frame_id = "world"
-    t.child_frame_id = "trunk"
+    t.child_frame_id = "upperarm"
     t.transform.translation.x = 0.0
     t.transform.translation.y = 0.0
     t.transform.translation.z = 0.0
@@ -27,8 +27,8 @@ def handle_arm_pose(msg):
     br.sendTransform(t)
 
 if __name__ == '__main__':
-    rospy.init_node('broadcast_trunk')
-    rospy.Subscriber('trunk_quaternion',
+    rospy.init_node('broadcast_upperarm')
+    rospy.Subscriber('upperarm_quaternion',
                      Quaternion,
                      handle_arm_pose)
     rospy.spin()
