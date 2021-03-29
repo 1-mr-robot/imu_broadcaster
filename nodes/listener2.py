@@ -11,7 +11,7 @@ from tf.transformations import euler_from_quaternion
 pi=3.14159265359
 
 if __name__ == '__main__':
-    rospy.init_node('tf2_turtle_listener')
+    rospy.init_node('tf2_arm_listener')
 
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)

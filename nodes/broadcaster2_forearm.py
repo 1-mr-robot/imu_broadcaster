@@ -9,7 +9,7 @@ from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import TransformStamped
 
 
-def handle_turtle_pose(msg):
+def handle_arm_pose(msg):
     br = tf2_ros.TransformBroadcaster()
     t = TransformStamped()
 
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     rospy.init_node('broadcast_forearm')
     rospy.Subscriber('forearm_quaternion',
                      Quaternion,
-                     handle_turtle_pose)
+                     handle_arm_pose)
     rospy.spin()
