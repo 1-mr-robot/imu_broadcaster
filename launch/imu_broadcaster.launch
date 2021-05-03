@@ -1,5 +1,6 @@
 <launch>
     <node name="forearm" pkg="imu_broadcaster" type="broadcaster2_forearm.py" />
+    <node name="shoulder" pkg="imu_broadcaster" type="broadcaster2_shoulder.py" />
     <node name="upperarm" pkg="imu_broadcaster" type="broadcaster2_upperarm.py" />    
     <node name="listener" pkg="imu_broadcaster" type="listener2.py" />
     <node name="imu_reader" pkg="imu_broadcaster" type="read_serial_imu.py" />
